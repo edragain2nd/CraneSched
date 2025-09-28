@@ -400,6 +400,7 @@ struct TaskInCtld {
 
   std::string reservation;
   absl::Time begin_time{absl::InfinitePast()};
+  absl::Time deadline_time{absl::InfiniteFuture()};
 
  private:
   /* ------------- [2] -------------
