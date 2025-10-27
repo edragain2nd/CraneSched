@@ -938,7 +938,7 @@ message QueryTxnLogReply {
   repeated Txn txn_log_list = 3;
 }
 
-message SendMemConfigCheckResultRequest {
+message CranedReportHealthRequest {
   string craned_id = 1;
   bool matched = 2;
 }
@@ -1012,7 +1012,7 @@ service CraneCtldForInternal {
   rpc CranedTriggerReverseConn(CranedTriggerReverseConnRequest) returns (google.protobuf.Empty);
   rpc CranedRegister(CranedRegisterRequest) returns (CranedRegisterReply);
   rpc CranedPing(CranedPingRequest) returns (CranedPingReply);
-  rpc SendMemConfigCheckResult(SendMemConfigCheckResultRequest) returns (google.protobuf.Empty);
+  rpc CranedReportHealth(CranedReportHealthRequest) returns (google.protobuf.Empty);
   /* RPCs called from Cfored */
   rpc CforedStream(stream StreamCforedRequest) returns (stream StreamCtldReply);
 }

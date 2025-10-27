@@ -209,7 +209,7 @@ class CtldClient {
 
   void SendStatusChanges_();
 
-  void SendMemConfigCheckResult_(bool is_match);
+  void CranedReportHealth_(bool is_match);
 
   void MemConfigCheck_();
 
@@ -241,7 +241,8 @@ class CtldClient {
   std::shared_ptr<uvw::timer_handle> m_ping_handle_;
   std::atomic_bool m_ping_ctld_{false};
   std::atomic<std::chrono::steady_clock::time_point> m_last_active_time_;
-  std::thread m_mem_config_check_thread_;
+
+  std::shared_ptr<uvw::timer_handle> m_mem_check_timer_;
 };
 
 }  // namespace Craned

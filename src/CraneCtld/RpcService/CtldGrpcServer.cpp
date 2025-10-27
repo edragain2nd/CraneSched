@@ -169,9 +169,9 @@ grpc::Status CtldForInternalServiceImpl::CranedPing(
   return grpc::Status::OK;
 }
 
-grpc::Status CtldForInternalServiceImpl::SendMemConfigCheckResult(
+grpc::Status CtldForInternalServiceImpl::CranedReportHealth(
     grpc::ServerContext *context,
-    const crane::grpc::SendMemConfigCheckResultRequest *request,
+    const crane::grpc::CranedReportHealthRequest *request,
     google::protobuf::Empty *response) {
   g_meta_container->UpdateNodeStateWithMemConfigCheck_(request->craned_id(),
                                                        request->matched());
