@@ -89,8 +89,8 @@ class CranedMetaContainer final {
   crane::grpc::ModifyCranedStateReply ChangeNodeState(
       const crane::grpc::ModifyCranedStateRequest& request);
 
-  void UpdateNodeStateWithConfigCheck_(const CranedId& craned_id,
-                                       bool is_match);
+  void UpdateNodeStateWithHealthCheck_(const CranedId& craned_id,
+                                       bool is_healthy, std::string reason);
   CraneExpected<void> ModifyPartitionAcl(
       const std::string& partition_name, bool is_allowed_list,
       std::unordered_set<std::string>&& accounts);

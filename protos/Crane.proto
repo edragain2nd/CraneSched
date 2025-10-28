@@ -940,7 +940,8 @@ message QueryTxnLogReply {
 
 message CranedReportHealthRequest {
   string craned_id = 1;
-  bool matched = 2;
+  bool healthy = 2;
+  string reason = 3;
 }
 
 // Todo: Divide service into two parts: one for Craned and one for Crun
