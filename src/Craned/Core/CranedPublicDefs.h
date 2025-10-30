@@ -72,6 +72,7 @@ struct Config {
   struct CranedConfig {
     uint32_t PingIntervalSec;
     uint32_t CtldTimeoutSec;
+    uint32_t NodeHealthCheckInterval;
   };
   CranedConfig CranedConf;
   struct CranedListenConf {
@@ -150,7 +151,6 @@ struct Config {
   std::unordered_map<std::string, std::shared_ptr<ResourceInNode>> CranedRes;
   std::unordered_map<std::string, Partition> Partitions;
 
-  uint64_t NodeHealthCheckInterval;
 };
 
 inline Config g_config{};

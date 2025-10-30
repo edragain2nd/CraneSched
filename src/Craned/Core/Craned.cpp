@@ -156,6 +156,9 @@ void ParseCranedConfig(const YAML::Node& config) {
       conf.PingIntervalSec = craned_config["PingInterval"].as<uint32_t>();
     if (craned_config["CraneCtldTimeout"])
       conf.CtldTimeoutSec = craned_config["CraneCtldTimeout"].as<uint32_t>();
+
+    conf.NodeHealthCheckInterval =
+        YamlValueOr<uint32_t>(craned_config["NodeHealthCheckInterval"], 0);
   }
   g_config.CranedConf = std::move(conf);
 }
@@ -370,9 +373,6 @@ void ParseConfig(int argc, char** argv) {
       g_config.CraneCtldForInternalListenPort =
           YamlValueOr(config["CraneCtldForInternalListenPort"],
                       kCtldForInternalDefaultPort);
-
-      g_config.NodeHealthCheckInterval =
-          YamlValueOr<uint64_t>(config["NodeHealthCheckInterval"], 0);
 
       if (config["Nodes"]) {
         for (auto it = config["Nodes"].begin(); it != config["Nodes"].end();

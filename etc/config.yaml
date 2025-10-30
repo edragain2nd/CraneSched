@@ -59,10 +59,9 @@ Craned:
   PingInterval: 15
   # register operation timeout in seconds
   CraneCtldTimeout: 5
-
-# Set the interval for node health check.
-# 0 means the health check is disabled.
-NodeHealthCheckInterval: 0
+  # Set the interval for node health check.
+  # 0 means the health check is disabled.
+  NodeHealthCheckInterval: 0
 
 # Scheduling settings
 # Current implemented scheduling algorithms are:
