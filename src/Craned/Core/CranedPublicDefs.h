@@ -150,7 +150,6 @@ struct Config {
       Ipv6ToCranedHostname;
   std::unordered_map<std::string, std::shared_ptr<ResourceInNode>> CranedRes;
   std::unordered_map<std::string, Partition> Partitions;
-
 };
 
 inline Config g_config{};
